@@ -1,0 +1,93 @@
+body {
+    background-image: url(https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2018/02/01/dae3dadf-6d36-4d59-8d17-cc5711ac4735/red-dead-redemption-2-cavalo);
+    background-size: cover;
+    font-family: Luminari, fantasy;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-family: Luminari, fantasy;
+}
+
+a:link {
+    text-decoration: none;
+
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    padding-top: 200px;
+    color: rgb(175, 115, 3);
+}
+
+.tela1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 200px;
+}
+
+.texto {
+    font-size: 25px;
+    font-family: Luminari, fantasy;
+    color: rgb(175, 115, 3);
+}
+
+#iptCav {
+    border-radius: 5px;
+    width: 200px;
+    padding-top: 2px;
+}
+
+.cadastro {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-family: Luminari, fantasy;
+}
+
+button {
+    font-size: 20px;
+    background-color: rgb(180, 141, 11);
+    color: black;
+    font-family: Luminari, fantasy;
+    padding: 3px
+}
+
+.imput {
+    padding: 10px;
+}
+
+#botao1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+}
+
+.botao55 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top3 {
+    font-size: 45px;
+    font-family: Luminari, fantasy;
+    color: rgb(148, 107, 32);
+    
+}
+.mensagem{
+    position:absolute;
+    top: 0;
+    padding-left: 20px;
+}

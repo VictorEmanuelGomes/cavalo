@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="turfe.css">
+</head>
+
+<body>
+    <div id="div_tela1">
+        <h1>Corrida de washington´s</h1>
+        <div class="tela1">
+            <div class="texto"> Insira o nome dos washington´s:</div>
+            <div class="imput"><input id="iptCav"></div>
+        </div>
+        <div class="cadastro"><button onclick="cadastrar()">cadastrar</button></div>
+    </div>
+    <div id="div_tela2" style="display: none;">
+        <h1>Turfe Amigo</h1>
+        <div id="botao1">
+            <button onclick="Largada()">Dar a Largada</button>
+        </div>
+        <div class="botao55">
+            <div id="botao2" style="display: none;">
+                <button onclick="vencedor()">Descubra o vencedor</button>
+            </div>
+        </div>
+        <div class="mensagem">
+            <div id="div_msg"></div>
+        </div>
+        <div class="top3">
+            <div id="div_top"></div>
+        </div>
+    </div>
+    <img src="" width="100px">
+</body>
+
+</html>
+<script>
+    var cavalos = []
+    var tempo = []
+    var cont = 0;
+    var soma1 = 0
+    var soma2 = 0
+    var soma3 = 0
+    var Cav1 = Number(0)
+    var Cav2 = Number(0)
+    var Cav3 = Number(0)
+    function cadastrar() {
+        var cav = Number(iptCav.value)
+        if (iptCav.values == '' || !Number.isNaN(cav)) {
+            alert(`Por favor inserir um nome valido`)
+        }
+        else {
+            cavalos.push(iptCav.value)
+            iptCav.value = ''
+            console.log(cavalos)
+        }
+        if (cavalos.length == 3) {
+            div_tela1.style.display = "none"
+            div_tela2.style.display = "block"
+        }
+    }
+    function Largada() {
+
+        for (let index = 0; index < 1; index++) {
+            Cav1 = Number(((Math.random() * 2) + 7).toFixed(1));
+            Cav2 = Number(((Math.random() * 2) + 7).toFixed(1));
+            Cav3 = Number(((Math.random() * 2) + 7).toFixed(1));
+
+            soma1 += Cav1
+            soma2 += Cav2
+            soma3 += Cav3
+
+            cont++
+        }
+        div_msg.innerHTML += `<br>${cont}° volta <br>{
+            ${cavalos[0]}- Tempo: ${Cav1}- Total: ${soma1.toFixed(1)}-- 
+            ${cavalos[1]}- Tempo: ${Cav2}- Total: ${soma2.toFixed(1)}--
+            ${cavalos[2]}- Tempo: ${Cav3}- Total: ${soma3.toFixed(1)}} <img src="https://media.tenor.com/AKT5o4KzMZ4AAAAd/horse-run.gif" width="45px">`
+        if (cont == 7) {
+            botao1.style.display = "none"
+            botao2.style.display = "block"
+        }
+    }
+    function vencedor() {
+        botao2.style.display = "block"
+        div_msg.innerHTML = ''
+        if (cont == 7) {
+            if (soma1 < soma2 && soma1 < soma3 && soma2 < soma3) {
+                div_top.innerHTML += `1°${cavalos[0]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[1]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[2]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            if (soma1 < soma2 && soma1 > soma3 && soma2 < soma3) {
+                div_top.innerHTML += `1°${cavalos[0]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[2]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[1]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            if (soma1 > soma2 && soma1 < soma3 && soma2 < soma3) {
+                div_top.innerHTML += `1°${cavalos[1]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[0]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[2]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            if (soma1 > soma2 && soma1 > soma3 && soma2 < soma3) {
+                div_top.innerHTML += `1°${cavalos[1]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[2]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[0]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            if (soma1 < soma2 && soma1 > soma3 && soma2 > soma3) {
+                div_top.innerHTML += `1°${cavalos[2]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[0]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[1]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            if (soma1 > soma2 && soma1 > soma3 && soma2 > soma3) {
+                div_top.innerHTML += `1°${cavalos[2]}🏆<br>`
+                div_top.innerHTML += `2° ${cavalos[1]}🥈<br>`
+                div_top.innerHTML += `3° ${cavalos[0]}🥉<br>`
+                botao2.style.display = "none"
+            }
+            
+        }
+            div_top.innerHTML += `Parabens campeão! TMJ BB<br>
+            <img src="imagens/Screenshot_20221201-142145_WhatsApp.jpg" width="500px">`
+        }
+
+
+</script>
